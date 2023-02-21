@@ -1,9 +1,9 @@
 import 'modern-normalize';
+import React, { Component } from 'react';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Statistics } from 'components/Statistics/Statistics';
-import React, { Component } from 'react';
-import css from './Section/Section.module.css';
 import { Section } from './Section/Section';
+import css from './Section/Section.module.css';
 
 export class App extends Component {
   state = {
@@ -12,8 +12,8 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleClick = event => {
-    const btnName = event.target.name;
+  handleClick = evt => {
+    const btnName = evt.target.name;
     this.setState(prevState => ({
       [btnName]: prevState[btnName] + 1,
     }));
@@ -30,6 +30,7 @@ export class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
     return (
       <div className={css.wrapper}>
         <Section title="Please leave feedback">
@@ -38,9 +39,9 @@ export class App extends Component {
 
         <Section title="Statistics">
           <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
+            good={good}
+            neutral={neutral}
+            bad={bad}
             total={this.countTotalFeedback()}
             positivePercentage={this.countPositiveFeedbackPercentage()}
           />

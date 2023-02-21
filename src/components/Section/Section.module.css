@@ -1,25 +1,10 @@
 .title {
-  margin: 40px 0 20px;
+  margin: 40px 0;
   font-size: 40px;
   font-weight: 500;
-  /* color: red; */
 }
 
 .wrapper {
-  /* display: flex; */
-  /* text-align: center;
-  justify-content: center;
-  align-items: center; */
-  margin-left: 30%;
-  font-style: 25px;
-  color: #010101;
-}
-
-.wrapper {
-  /* display: flex; */
-  /* text-align: center;
-  justify-content: center;
-  align-items: center; */
   margin-left: 30%;
   font-style: 25px;
   color: #010101;
