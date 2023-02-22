@@ -2,37 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
-export const FeedbackOptions = ({ onClickButton }) => {
+const firstLetterToUppercase = name => name[0].toUpperCase() + name.slice(1);
+
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <div className={css.buttonList}>
-      <button
-        type="button"
-        name="good"
-        className={css.button}
-        onClick={onClickButton}
-      >
-        Good
-      </button>
-      <button
-        type="button"
-        name="neutral"
-        className={css.button}
-        onClick={onClickButton}
-      >
-        Neutral
-      </button>
-      <button
-        type="button"
-        name="bad"
-        className={css.button}
-        onClick={onClickButton}
-      >
-        Bad
-      </button>
+      {options.map(option => (
+        <button
+          type="button"
+          key={option}
+          name={option}
+          className={css.button}
+          onClick={onLeaveFeedback}
+        >
+          {firstLetterToUppercase(option)}
+        </button>
+      ))}
     </div>
   );
 };
 
 FeedbackOptions.propTypes = {
-  onClickButton: PropTypes.func.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };

@@ -34,7 +34,10 @@ export class App extends Component {
     return (
       <div className={css.wrapper}>
         <Section title="Please leave feedback">
-          <FeedbackOptions onClickButton={this.handleClick} />
+          <FeedbackOptions
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handleClick}
+          />
         </Section>
 
         <Section title="Statistics">
